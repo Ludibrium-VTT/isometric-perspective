@@ -6,9 +6,6 @@
         <input id="{{rootId}}-isometric-perspective-enable-token-isometrics" type="checkbox" name="flags.isometric-perspective.isoTokenDisabled" {{checked document.flags.isometric-perspective.isoTokenDisabled}}>
     </div>
     <p class="hint">{{localize 'isometric-perspective.token_enableIsometric_hint'}}</p>
-
-    <hr>
-
     <div class="form-group offset-point">
         <label>{{localize 'isometric-perspective.token_artOffset_name'}}</label>
         <div class="form-fields">
@@ -62,7 +59,7 @@
     </div>
 
     <div class="form-group">
-        <label>{{localize 'isometric-perspective.token_disableScale_name'}}</label>
+        <label style="flex: 3;">{{localize 'isometric-perspective.token_disableScale_name'}}</label>
         <div class="form-fields">
             <input type="checkbox" name="flags.isometric-perspective.isoScaleDisabled" {{checked document.flags.isometric-perspective.isoScaleDisabled}}>
         </div>
