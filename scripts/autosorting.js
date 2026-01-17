@@ -30,7 +30,7 @@ export function registerSortingConfig() {
   });
 
   Hooks.on("canvasReady", (canvas) => {
-    const scene = game.scenes.active;
+    const scene = canvas.scene;
     if (!scene) return;
     if (!scene.getFlag(isometricModuleConfig.MODULE_ID, "isometricEnabled")) return;
 
@@ -56,8 +56,9 @@ export function registerSortingConfig() {
 
 
 async function updateTokenSort(token) {
-  // Use the token's scene, which is more reliable than game.scenes.active
-  const scene = token.scene || token.document.parent;
+  // Use the token's scene, or fall back to the rendered canvas scene.
+  // We avoid game.scenes.active because the GM might be simulating movement on a non-active scene.
+  const scene = token.scene || token.document.parent || canvas.scene;
   if (!scene) return;
 
   // Wait for the movement animation to complete using robust helper
