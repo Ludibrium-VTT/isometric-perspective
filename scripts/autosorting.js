@@ -56,7 +56,7 @@ export function registerSortingConfig() {
 
 
 async function updateTokenSort(token) {
-  // Use the token's scene, which is more reliable than game.scenes.active in edge cases
+  // Use the token's scene, which is more reliable than game.scenes.active
   const scene = token.scene || token.document.parent;
   if (!scene) return;
 
